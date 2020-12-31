@@ -1,0 +1,66 @@
+project.ext {
+    androidXVersion = "1.2.0"
+    materialVersion = "1.2.1"
+    constraintLayout = "2.0.4"
+    recyclerviewVersion = "1.1.0"
+    lifecycleExtensions = "2.2.0"
+    lifecycleViewmodel = "2.2.0"
+    retrofit = "2.7.0"
+    cardview = "1.0.0"
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 30
+    defaultConfig {
+        applicationId "com.robert.mvvmsample"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    implementation "androidx.appcompat:appcompat:$project.androidXVersion"
+    implementation "androidx.cardview:cardview:$project.cardview"
+    implementation "androidx.recyclerview:recyclerview:$project.recyclerviewVersion"
+    implementation "androidx.lifecycle:lifecycle-extensions:$project.lifecycleExtensions"
+
+    implementation "com.squareup.retrofit2:retrofit:$project.retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$project.retrofit"
+    implementation "com.android.support.constraint:constraint-layout:$project.constraintLayout"
+
+    implementation "com.google.android.material:material:$project.materialVersion"
+    testImplementation 'junit:junit:4.12'
+    implementation "androidx.core:core-ktx:+"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$project.lifecycleViewmodel"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
+}
