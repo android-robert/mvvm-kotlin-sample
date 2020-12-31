@@ -1,3 +1,3 @@
-# MVVM Sample App
+# MVVM LiveData Kotlin Sample
 The main purpose of this app is to show MVVM sample implementation using the new Google Architectural
 components LiveData and ViewModel.
